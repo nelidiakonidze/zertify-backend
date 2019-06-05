@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const jsonData = require('./db.json');
+const students = require('./db.json').students;
 
 // const bodyParser = require('body-parser');
 // app.use(bodyParser.json());
@@ -14,32 +14,30 @@ const jsonData = require('./db.json');
 app.get('/', (req, res) => res.send('Welcome to Zertify Api'));
 
 app.get('/zstudents', (req, res) => {
-  return res.send(jsonData);
+  return res.send(students);
 });
 
 app.get('/zstudents/:id', (req, res) => {
   // console.log(req.params.id);
   const key = req.params.id;
-  const listStudent = jsonData.students.filter(student => {
+  const targetStudent = students.filter(student => {
     return student.id == key;
   });
   // console.log(student);
 
-  return res.json({students: listStudent});
+  return res.json({students: targetStudent});
 });
 
-// app.delete('/zstudents/:id', (req, res) => {
-//   const key = req.params.id;
-//   const listStudent = jsonData.students.filter(student => {
-//     return student.id == key;
-//   });
-//   const deleteStudent = listStudent.find(
-//     target => target.id === parseInt(req.params.id),
-//   );
-//   const index = deleteStudent.indexOf(listStudent);
-//   deleteStudent.splice(index, 1);
-//   return res.json({listStudent});
-// });
+app.delete('/zstudents/:id', (req, res) => {
+  const targetStudent = students.filter(student => {
+    return student.id == req.params.id;
+  });
+  const index = students.indexOf(targetStudent[0]);
+  students.splice(index, 1);
+  // console.log(jsonData);
+
+  return res.json(students);
+});
 
 //   return (
 
