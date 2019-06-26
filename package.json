@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.1",
     "react-router": "^5.0.1"
+=======
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+>>>>>>> 815ec6bdc383c08c76dbace406ccf149bd4492e5
   }
 }

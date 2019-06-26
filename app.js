@@ -1,6 +1,8 @@
 const express = require('express');
+// to allow access from any origin to fetch our api (after we can specify a whitelist)
+const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 const students = require('./db.json').students;
 
 // const bodyParser = require('body-parser');
