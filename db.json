@@ -2,23 +2,60 @@
   "students": [
     {
       "id": 1,
-      "first_name": "Neli",
-      "last_name": "Diakonidze"
+      "firstName": "Neli",
+      "lastName": "Diakonidze"
     },
     {
       "id": 2,
-      "first_name": "Camille",
-      "last_name": "Charteau"
+      "firstName": "Camille",
+      "lastName": "Charteau"
     },
     {
       "id": 3,
-      "first_name": "Raphael",
-      "last_name": "Lautenbacher"
+      "firstName": "Raphael",
+      "lastName": "Lautenbacher"
     },
     {
       "id": 4,
-      "first_name": "Betta",
-      "last_name": "Nycz"
+      "firstName": "Peter",
+      "lastName": "McIntosh"
+    },
+    {
+      "id": 5,
+      "firstName": "Christine",
+      "lastName": "Apple"
+    },
+    {
+      "id": 6,
+      "firstName": "Molly",
+      "lastName": "React"
+    },
+    {
+      "id": 7,
+      "firstName": "Micheal",
+      "lastName": "Pompliano"
+    },
+    {
+      "id": 8,
+      "firstName": "Satoshi",
+      "lastName": "Nakamoto"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Web Development",
+      "hours": "150"
+    },
+    {
+      "id": 2,
+      "name": "Mobile Development",
+      "hours": "150"
+    },
+    {
+      "id": 3,
+      "name": "Data Science",
+      "hours": "250"
     }
   ]
 }
