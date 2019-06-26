@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 4000;
 const students = require('./db.json').students;
+const courses = require('./db.json').courses;
 
 // const bodyParser = require('body-parser');
 // app.use(bodyParser.json());
@@ -18,6 +19,9 @@ app.use(cors());
 
 app.get('/', (req, res) => res.send('Welcome to Zertify Api'));
 
+//////////////////
+// FOR STUDENTS //
+/////////////////
 app.get('/zstudents', (req, res) => {
   return res.send(students);
 });
@@ -45,7 +49,6 @@ app.delete('/zstudents/:id', (req, res) => {
 });
 
 //   return (
-
 //     err => {
 //       if (err) {
 //         console.log(err);
@@ -56,5 +59,32 @@ app.delete('/zstudents/:id', (req, res) => {
 //     }
 //   );
 // })
+
+//////////////////
+// FOR COURSES  //
+/////////////////
+app.get('/zcourses', (req, res) => {
+  return res.send(courses);
+});
+
+app.get('/zcourses/:id', (req, res) => {
+  // console.log(req.params.id);
+  const key = req.params.id;
+  const targetCourse = courses.filter(course => {
+    return course.id == key;
+  });
+  // console.log(course);
+  return res.json({courses: targetCourse});
+});
+
+app.delete('/zcourses/:id', (req, res) => {
+  const targetCourse = courses.filter(course => {
+    return course.id == req.params.id;
+  });
+  const index = courses.indexOf(targetCourse[0]);
+  courses.splice(index, 1);
+  // console.log(jsonData);
+  return res.json(courses);
+});
 
 app.listen(port, () => console.log(`Zertify api listening on ${port}!`));
