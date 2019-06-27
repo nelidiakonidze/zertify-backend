@@ -38,15 +38,29 @@ app.get('/api/students/:id', (req, res) => {
 });
 
 //delete students by ID
-app.delete('/zstudents/:id', (req, res) => {
-  const targetStudent = students.filter(student => {
-    return student.id == req.params.id;
+app.delete('/api/students/:id', (req, res) => {
+  const students = list.students;
+  const targetStudent = students.find(student => {
+    return student.id == parseInt(req.params.id);
   });
   const index = students.indexOf(targetStudent[0]);
   students.splice(index, 1);
   // console.log(jsonData);
-
   return res.json(students);
+});
+
+// post new students
+app.post('/api/students', (req, res) => {
+  const students = list.students;
+  const lastItem = students[students.length - 1];
+  const lastId = lastItem.id;
+  const targetStudent = {
+    id: lastId + 1,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+  };
+  students.push(targetStudent);
+  res.send(targetStudent);
 });
 
 //   return (
