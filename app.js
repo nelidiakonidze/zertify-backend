@@ -3,45 +3,41 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 4000;
-const students = require('./db.json').students;
-const courses = require('./db.json').courses;
-
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   }),
-// );
+const list = require('./db.json');
+const bodyParser = require('body-parser');
 
 app.use(cors());
 
-// app.all('/', function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-//   next();
-// });
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  }),
+);
 
 app.get('/', (req, res) => res.send('Welcome to Zertify Api'));
 
 //////////////////
 // FOR STUDENTS //
 /////////////////
-app.get('/zstudents', (req, res) => {
-  return res.send(students);
+//Show all Students
+app.get('/api/students', (req, res) => {
+  return res.send(list.students);
 });
 
-app.get('/zstudents/:id', (req, res) => {
+//get Students by ID
+app.get('/api/students/:id', (req, res) => {
   // console.log(req.params.id);
+  const students = list.students;
   const key = req.params.id;
   const targetStudent = students.filter(student => {
     return student.id == key;
   });
-  // console.log(student);
-
+  //console.log(student);
   return res.json({students: targetStudent});
 });
 
+//delete students by ID
 app.delete('/zstudents/:id', (req, res) => {
   const targetStudent = students.filter(student => {
     return student.id == req.params.id;
