@@ -43,7 +43,7 @@ app.delete('/api/students/:id', (req, res) => {
   const targetStudent = students.find(student => {
     return student.id == parseInt(req.params.id);
   });
-  const index = students.indexOf(targetStudent[0]);
+  const index = students.indexOf(targetStudent);
   students.splice(index, 1);
   // console.log(jsonData);
   return res.json(students);
