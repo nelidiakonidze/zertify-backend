@@ -41,6 +41,21 @@
       "id": 4,
       "name": "Mobile Developement",
       "hours": "50"
+    },
+    {
+      "id": 1,
+      "name": "Web Development",
+      "hours": "150"
+    },
+    {
+      "id": 2,
+      "name": "Mobile Development",
+      "hours": "150"
+    },
+    {
+      "id": 3,
+      "name": "Data Science",
+      "hours": "250"
     }
   ]
 }
