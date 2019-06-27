@@ -20,5 +20,42 @@
       "first_name": "Betta",
       "last_name": "Nycz"
     }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Web Developement",
+      "hours": "60"
+    },
+    {
+      "id": 2,
+      "name": "The art of Storytelling",
+      "hours": "20"
+    },
+    {
+      "id": 3,
+      "name": "Ninja notes",
+      "hours": "5"
+    },
+    {
+      "id": 4,
+      "name": "Mobile Developement",
+      "hours": "50"
+    },
+    {
+      "id": 5,
+      "name": "Web Development",
+      "hours": "150"
+    },
+    {
+      "id": 6,
+      "name": "Mobile Development",
+      "hours": "150"
+    },
+    {
+      "id": 7,
+      "name": "Data Science",
+      "hours": "250"
+    }
   ]
 }
