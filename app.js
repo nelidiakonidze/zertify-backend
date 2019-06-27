@@ -13,11 +13,14 @@ const courses = require('./db.json').courses;
 //     extended: true,
 //   }),
 // );
-app.all('/', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-  next();
-});
+
+app.use(cors());
+
+// app.all('/', function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+//   next();
+// });
 
 app.get('/', (req, res) => res.send('Welcome to Zertify Api'));
 
@@ -65,28 +68,28 @@ app.delete('/zstudents/:id', (req, res) => {
 //////////////////
 // FOR COURSES  //
 /////////////////
-app.get('/zcourses', (req, res) => {
-  return res.send(courses);
-});
+// app.get('/zcourses', (req, res) => {
+//   return res.send(courses);
+// });
 
-app.get('/zcourses/:id', (req, res) => {
-  // console.log(req.params.id);
-  const key = req.params.id;
-  const targetCourse = courses.filter(course => {
-    return course.id == key;
-  });
-  // console.log(course);
-  return res.json({courses: targetCourse});
-});
+// app.get('/zcourses/:id', (req, res) => {
+//   // console.log(req.params.id);
+//   const key = req.params.id;
+//   const targetCourse = courses.filter(course => {
+//     return course.id == key;
+//   });
+//   // console.log(course);
+//   return res.json({courses: targetCourse});
+// });
 
-app.delete('/zcourses/:id', (req, res) => {
-  const targetCourse = courses.filter(course => {
-    return course.id == req.params.id;
-  });
-  const index = courses.indexOf(targetCourse[0]);
-  courses.splice(index, 1);
-  // console.log(jsonData);
-  return res.json(courses);
-});
+// app.delete('/zcourses/:id', (req, res) => {
+//   const targetCourse = courses.filter(course => {
+//     return course.id == req.params.id;
+//   });
+//   const index = courses.indexOf(targetCourse[0]);
+//   courses.splice(index, 1);
+//   // console.log(jsonData);
+//   return res.json(courses);
+// });
 
 app.listen(port, () => console.log(`Zertify api listening on ${port}!`));
