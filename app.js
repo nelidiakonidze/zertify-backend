@@ -27,13 +27,11 @@ app.get('/students', (req, res) => {
 
 //get Students by ID
 app.get('/students/:id', (req, res) => {
-  // console.log(req.params.id);
   const students = list.students;
   const key = req.params.id;
   const targetStudent = students.filter(student => {
     return student.id == key;
   });
-  //console.log(student);
   return res.json({students: targetStudent});
 });
 
@@ -45,7 +43,6 @@ app.delete('/students/:id', (req, res) => {
   });
   const index = students.indexOf(targetStudent);
   students.splice(index, 1);
-  // console.log(jsonData);
   return res.json(students);
 });
 
@@ -71,13 +68,11 @@ app.get('/courses', (req, res) => {
 });
 
 app.get('/courses/:id', (req, res) => {
-  // console.log(req.params.id);
   const courses = list.courses;
   const key = req.params.id;
   const targetCourse = courses.filter(course => {
     return course.id == key;
   });
-  // console.log(course);
   return res.json({courses: targetCourse});
 });
 
@@ -88,7 +83,6 @@ app.delete('/courses/:id', (req, res) => {
   });
   const index = courses.indexOf(targetCourse);
   courses.splice(index, 1);
-  // console.log(jsonData);
   return res.json(courses);
 });
 
